@@ -2,6 +2,7 @@ import Except.FileIsNullExcept;
 import com.huaban.analysis.jieba.JiebaSegmenter;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class PreHandle {
@@ -65,7 +66,7 @@ public class PreHandle {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return new String(content);
+        return new String(content, StandardCharsets.UTF_8);
     }
 
 

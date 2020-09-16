@@ -15,6 +15,6 @@ public class Main {
         double result = CosineSimilarity.getSimilarity(orig,test);
         WriteAns.writeTxtFile(args[2],result);
         System.out.println(String.format("相识度为 %.2f", result));
-        System.out.println(String.format("花费时间：%d", System.currentTimeMillis()-now));
+        System.out.println(String.format("花费时间：%d ms", System.currentTimeMillis()-now));
     }
 }

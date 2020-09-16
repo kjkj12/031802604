@@ -10,13 +10,13 @@ import java.util.Map;
 
 public class test {
 
-    private static final String filePath = "src\\main\\resources\\";
+    private static final String filePath = "src/main/resources/";
 
-    private static final String IN_PATH = filePath+"example";
+    private static final String IN_PATH = filePath+"example/";
 
     @Test(timeout = 5000)
     public void Test(){
-        String[] str = {IN_PATH+"\\time1.txt",IN_PATH+"\\time2.txt",filePath+"\\result\\ans_time.txt"};
+        String[] str = {IN_PATH+"time1.txt",IN_PATH+"time2.txt",filePath+"result/ans_time.txt"};
         Main.main(str);
     }
 
@@ -31,7 +31,7 @@ public class test {
         for(String file : files){
             if(!file.equals("orig.txt")){
                 System.out.println("开始处理"+file);
-                String[] str = {IN_PATH+"orig.txt",IN_PATH+file,filePath+"\\result\\ans"+cnt+".txt"};
+                String[] str = {IN_PATH+"orig.txt",IN_PATH+file,filePath+"result/ans"+cnt+".txt"};
                 Main.main(str);
                 System.out.println("===================================================");
                 cnt++;
@@ -41,13 +41,13 @@ public class test {
 
     @Test(expected = FileIsNullExcept.class)
     public void test3FileNullExcept() {
-        String[] str = {filePath+"test\\null.txt",IN_PATH+"\\time2.txt",filePath+"\\result\\ans_time.txt"};
+        String[] str = {filePath+"test/null.txt",IN_PATH+"time2.txt",filePath+"result/ans_time.txt"};
         Main.main(str);
     }
 
     @Test(expected = SimilarExcept.class)
     public void Test4SimilarExcept(){
-        String[] str = {IN_PATH+"\\time2.txt",IN_PATH+"\\time2.txt",filePath+"\\result\\ans_time.txt"};
+        String[] str = {IN_PATH+"time2.txt",IN_PATH+"time2.txt",filePath+"result/ans_time.txt"};
         Main.main(str);
     }
 
@@ -80,7 +80,7 @@ public class test {
 
     @Test
     public void Test7PreHandle(){
-        List<String> strings = PreHandle.Handle(IN_PATH+"\\time2.txt");
+        List<String> strings = PreHandle.Handle(IN_PATH+"time2.txt");
         strings.forEach(s1 -> {
             System.out.println(s1);
         });
@@ -100,7 +100,7 @@ public class test {
         for(String file : files){
             if(!file.equals("time1.txt")){
                 System.out.println("开始处理"+file);
-                String[] str = {IN_PATH+"time1.txt",IN_PATH+file,filePath+"\\result\\ans_no_similar"+cnt+".txt"};
+                String[] str = {IN_PATH+"time1.txt",IN_PATH+file,filePath+"result/ans_no_similar"+cnt+".txt"};
                 Main.main(str);
                 System.out.println("===================================================");
                 cnt++;
@@ -120,7 +120,7 @@ public class test {
 
     @Test
     public void Test10Write(){
-        WriteAns.writeTxtFile(filePath+"result\\test.txt",1);
+        WriteAns.writeTxtFile(filePath+"result/test.txt",1);
     }
 
 

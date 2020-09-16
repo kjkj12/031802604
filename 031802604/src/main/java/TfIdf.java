@@ -10,11 +10,11 @@ import java.util.Objects;
 
 public class TfIdf {
 
-    private static final String filePath = "src\\main\\resources\\";
+    private static final String filePath = "src/main/resources/";
 
     private static final String IN_PATH = filePath+"TfIdfResource"; // 语料库路径
 
-    private static final String OUT_PATH = filePath+"TfIdfJson\\TfIdf.json";
+    private static final String OUT_PATH = filePath+"TfIdfJson/TfIdf.json";
 
     private static final JiebaSegmenter segmenter = new JiebaSegmenter();
 

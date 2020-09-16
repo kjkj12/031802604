@@ -11,7 +11,7 @@ public class Json {
     public static Map<String,Integer> parseJson() throws IOException {
         BufferedReader reader ;
         StringBuilder lastStr = new StringBuilder();
-        InputStream inputStream = ClassLoader.getSystemResourceAsStream("\\TfIdfJson\\TfIdf.json");
+        InputStream inputStream = ClassLoader.getSystemResourceAsStream("TfIdfJson/TfIdf.json");
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
         reader = new BufferedReader(inputStreamReader);
         String tempString ;

@@ -1,10 +1,13 @@
 import org.junit.Test;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class test {
 
-    private static final String filePath = "C:\\Users\\KJ\\031802604\\031802604\\src\\main\\resources\\";
+    private static final String filePath = "src\\main\\resources\\";
 
     private static final String IN_PATH = filePath+"example\\";
 
@@ -22,7 +25,6 @@ public class test {
                 String[] str = {IN_PATH+"orig.txt",IN_PATH+file,filePath+"\\result\\ans"+cnt+".txt"};
                 long current = System.currentTimeMillis();
                 Main.main(str);
-                System.out.println(String.format("花费时间：%d", System.currentTimeMillis()-current));
                 System.out.println("===================================================");
                 cnt++;
             }
@@ -33,5 +35,16 @@ public class test {
     public void Test2(){
         String[] str = {IN_PATH+"\\time1.txt",IN_PATH+"\\time2.txt",filePath+"\\result\\ans_time.txt"};
         Main.main(str);
+    }
+
+    @Test()
+    public void Test3(){
+        Map<String,Integer> map = new HashMap<>();
+        try {
+            map = Json.parseJson();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(map.get("我"));
     }
 }

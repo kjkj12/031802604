@@ -12,7 +12,7 @@ public class CosineSimilarity {
     public static void init(){
         new Thread(() -> {
             try {
-                weight = Json.parseJson("C:\\Users\\KJ\\031802604\\031802604\\src\\main\\resources\\TfIdfJson\\TfIdf.json");
+                weight = Json.parseJson();
             } catch (IOException e) {
                 e.printStackTrace();
             }

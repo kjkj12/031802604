@@ -10,7 +10,7 @@ import java.util.Objects;
 
 public class TfIdf {
 
-    private static final String filePath = "C:\\Users\\KJ\\031802604\\031802604\\src\\main\\resources\\";
+    private static final String filePath = "src\\main\\resources\\";
 
     private static final String IN_PATH = filePath+"TfIdfResource"; // 语料库路径
 

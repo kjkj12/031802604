@@ -9,9 +9,9 @@ public class WriteAns {
             BufferedWriter out = new BufferedWriter(new FileWriter(filepath));
             out.write(String.format("%.2f", result));
             out.close();
-            //System.out.println("文件创建成功！");
+            System.out.println("文件创建成功！");
         } catch (IOException e) {
-            System.out.println("创建文件内容出错");
+            System.err.println("创建文件内容出错");
             e.printStackTrace();
         }
     }

@@ -1,3 +1,5 @@
+import Except.SimilarExcept;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -67,6 +69,10 @@ public class CosineSimilarity {
 //        System.out.println(sum_orig);
 //        System.out.println(sum_test);
 //        System.out.println(sum_all);
-        return sum_all / Math.sqrt(sum_orig * sum_test);
+        double result = sum_all / Math.sqrt(sum_orig * sum_test);
+        if(result == 1){
+            throw new SimilarExcept("不同的文本获得了同样的结果");
+        }
+        return result;
     }
 }

@@ -1,3 +1,4 @@
+import Except.FileIsNullExcept;
 import com.huaban.analysis.jieba.JiebaSegmenter;
 
 import java.io.*;
@@ -53,6 +54,9 @@ public class PreHandle {
     private static String readToString(String fileName) {
         File file = new File(fileName);
         long length = file.length();
+        if(length == 0){
+            throw new FileIsNullExcept(fileName+"文件不能为空");
+        }
         byte[] content = new byte[(int) length];
         try {
             FileInputStream in = new FileInputStream(file);

@@ -5,11 +5,24 @@ import java.util.List;
 
 public class PreHandle {
 
+    private static JiebaSegmenter segmenter;
+
+    static Thread t;
+
+    static {
+        t = new Thread(() -> {
+            segmenter = new JiebaSegmenter();
+        });
+        t.start();
+        CosineSimilarity.init();
+    }
+
     public static List<String> Handle(String fileName){
         String text = readToString(fileName);
         text = removePunctuation(text);
         return split(text);
     }
+
 
     /**
      * 去标点
@@ -26,7 +39,11 @@ public class PreHandle {
      * 分词
      */
     private static List<String> split(String text){
-        JiebaSegmenter segmenter = new JiebaSegmenter();
+        try {
+            t.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return segmenter.sentenceProcess(text);
     }
 

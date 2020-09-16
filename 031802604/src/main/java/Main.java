@@ -7,11 +7,10 @@ public class Main {
     private static List<String> test = new ArrayList<>();
 
     public static void main(String[] args){
+        long now = System.currentTimeMillis();
         orig = PreHandle.Handle(args[0]);
         test = PreHandle.Handle(args[1]);
-
-        double d = CosineSimilarity.getSimilarity(orig,test);
-        WriteAns.writeTxtFile(args[2],d);
-        System.out.println(d);
+        WriteAns.writeTxtFile(args[2],CosineSimilarity.getSimilarity(orig,test));
+        System.out.println(System.currentTimeMillis()-now);
     }
 }

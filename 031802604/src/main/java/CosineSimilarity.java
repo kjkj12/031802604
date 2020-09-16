@@ -1,16 +1,25 @@
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class CosineSimilarity {
+
+    private static Map<String,Integer> weight;
+
+    public static void init(){
+        new Thread(() -> {
+            try {
+                weight = Json.parseJson("C:\\Users\\KJ\\031802604\\031802604\\src\\main\\resources\\TfIdfJson\\TfIdf.json");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
+    }
+
     public static double getSimilarity(List<String> txt_orig, List<String> txt_test) {
-        Map<String,Integer> weight = new HashMap<>();
-        try {
-            weight = Json.parseJson("C:\\Users\\KJ\\031802604\\031802604\\src\\main\\resources\\TfIdfJson\\TfIdf.json");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         double Max = weight.get("MaxNum") ;
         Map<String,int[]> countMap=new HashMap<>();
         txt_orig.forEach(s -> {

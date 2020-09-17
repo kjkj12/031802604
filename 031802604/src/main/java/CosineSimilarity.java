@@ -9,14 +9,12 @@ public class CosineSimilarity {
 
     private static Map<String,Integer> weight;
 
-    public static void init(){
-        new Thread(() -> {
-            try {
-                weight = Json.parseJson();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }).start();
+    static {
+        try {
+            weight = Json.parseJson();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static double getSimilarity(List<String> txt_orig, List<String> txt_test) {

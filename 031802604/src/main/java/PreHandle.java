@@ -7,17 +7,7 @@ import java.util.List;
 
 public class PreHandle {
 
-    private static JiebaSegmenter segmenter;
-
-    static Thread t;
-
-    static {
-        t = new Thread(() -> {
-            segmenter = new JiebaSegmenter();
-        });
-        t.start();
-        CosineSimilarity.init();
-    }
+    private static JiebaSegmenter segmenter = new JiebaSegmenter();
 
     public static List<String> Handle(String fileName){
         String text = readToString(fileName);
@@ -41,11 +31,6 @@ public class PreHandle {
      * 分词
      */
     private static List<String> split(String text){
-        try {
-            t.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         return segmenter.sentenceProcess(text);
     }
 
